@@ -1,0 +1,24 @@
+# Copyright 2015-2016 Kylie McClain <somasis@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+# require mate [ pn=blah pv=1.2.3 pnv=bluh-1.2.4 branch=1.1 suffix="tar.xz" ]
+
+myexparam pn=${MY_PN:-$PN}
+myexparam pv=${MY_PV:-$PV}
+myexparam pnv=$(exparam pn)-$(exparam pv)
+myexparam branch=$(ever range 1-2)
+myexparam suffix=tar.xz
+
+dl_pn=$(exparam pn)
+dl_pn=${dl_pn,,}
+
+HOMEPAGE="http://www.mate-desktop.org"
+
+if ever is_scm; then
+    require github [ user=mate-desktop pn=$(exparam pn) ]
+else
+    DOWNLOADS="http://pub.mate-desktop.org/releases/$(exparam branch)/$(exparam pnv).$(exparam suffix)"
+fi
+
+BUGS_TO="somasis@exherbo.org"
+
