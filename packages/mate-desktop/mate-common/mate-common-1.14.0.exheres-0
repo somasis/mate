@@ -1,0 +1,18 @@
+# Copyright 2016 Kylie McClain <somasis@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+require mate
+
+SUMMARY="Autoconf macros for MATE things"
+SLOT="0"
+LICENCES="GPL-3"
+
+MYOPTIONS=""
+
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    build:
+        sys-devel/autoconf:*
+"
+
